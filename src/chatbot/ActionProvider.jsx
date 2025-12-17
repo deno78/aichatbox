@@ -14,7 +14,7 @@ class ActionProvider {
    * Handle user messages
    * TODO: Integrate with Azure AI Search backend
    */
-  handleMessage = async (message) => {
+  handleMessage = async () => {
     // Placeholder response until Azure AI Search is integrated
     const botMessage = this.createChatBotMessage(
       'こんにちは！現在、Azure AI Searchとの連携を準備中です。まもなく、より高度な回答ができるようになります。'
@@ -32,8 +32,9 @@ class ActionProvider {
   /**
    * Query Azure AI Search (to be implemented)
    */
-  async queryAzureSearch(query) {
-    const { azureSearchEndpoint, azureSearchApiKey, azureSearchIndexName, apiVersion } = backendConfig;
+  // eslint-disable-next-line no-unused-vars
+  async queryAzureSearch(_query) {
+    const { azureSearchEndpoint, azureSearchApiKey, azureSearchIndexName } = backendConfig;
     
     // Placeholder for Azure AI Search integration
     if (!azureSearchEndpoint || !azureSearchApiKey || !azureSearchIndexName) {
@@ -43,6 +44,7 @@ class ActionProvider {
 
     // TODO: Implement actual Azure AI Search API call
     // Example structure:
+    // const { apiVersion } = backendConfig;
     // const url = `${azureSearchEndpoint}/indexes/${azureSearchIndexName}/docs/search?api-version=${apiVersion}`;
     // const response = await fetch(url, {
     //   method: 'POST',
@@ -50,7 +52,7 @@ class ActionProvider {
     //     'Content-Type': 'application/json',
     //     'api-key': azureSearchApiKey,
     //   },
-    //   body: JSON.stringify({ search: query }),
+    //   body: JSON.stringify({ search: _query }),
     // });
     // return await response.json();
   }
